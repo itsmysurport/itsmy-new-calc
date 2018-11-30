@@ -1,10 +1,5 @@
 from new_calc_ui import *
 
-resultLabel = ''
-first = ''
-second = ''
-oper = ''
-
 def numberEvent(self):
     self.button1_0.clicked.connect(lambda x : self.addNumber('0'))
     self.button1_1.clicked.connect(lambda x : self.addNumber('1'))
@@ -20,35 +15,38 @@ def numberEvent(self):
     self.resultButton.clicked.connect(self.resultFunc)
 
 def resultFunc(self):
-    global first, oper, second
-    if oper:
-        second = self.result.text()
-        self.resultText = eval(first + oper + second)
+    if self.oper:
+        self.second = self.result.text()
+        self.resultText = eval(self.first + self.oper + self.second)
         self.result.setText(str(self.resultText))
 
 def operator(self, a):
-    global first, oper
-    if not first:
-        first = self.result.text()
-        self.result.setText('0')
-        oper = a
-        print(first)
+    if not self.first:
+        self.first = self.result.text()
+        self.resultLabel = '0'
+        self.result.setText(self.resultLabel)
+        self.oper = a
+        print(self.first)
 
 def addNumber(self, a):
-    global resultLabel
-    if (len(resultLabel) == 1) and (resultLabel[0] == '0'):
+    if (len(self.resultLabel) == 1) and (self.resultLabel[0] == '0'):
         if a == '0':
             pass
         else:
-            resultLabel = a
+            self.resultLabel = a
     else:
-        resultLabel += a
-    self.result.setText(resultLabel)
+        self.resultLabel += a
+    self.result.setText(self.resultLabel)
 
 Ui_New_calc.numberEvent = numberEvent
 Ui_New_calc.addNumber = addNumber
 Ui_New_calc.operator = operator
 Ui_New_calc.resultFunc = resultFunc
+
+Ui_New_calc.resultLabel = ''
+Ui_New_calc.first = ''
+Ui_New_calc.second = ''
+Ui_New_calc.oper = ''
 
 if __name__ == "__main__":
     import sys
