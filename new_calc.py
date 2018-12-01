@@ -12,16 +12,25 @@ def numberEvent(self):
     self.button1_8.clicked.connect(lambda x : self.addNumber('8'))
     self.button1_9.clicked.connect(lambda x : self.addNumber('9'))
     self.buttonPlus.clicked.connect(lambda x : self.operator('+'))
+    self.buttonMinus.clicked.connect(lambda x : self.operator('-'))
+    self.buttonMulti.clicked.connect(lambda x : self.operator('*'))
+    self.buttonDivide.clicked.connect(lambda x : self.operator('/'))
     self.resultButton.clicked.connect(self.resultFunc)
 
 def resultFunc(self):
     if self.oper:
         self.second = self.result.text()
-        self.resultText = eval(self.first + self.oper + self.second)
-        self.result.setText(str(self.resultText))
+
+        self.resultLabel = str(eval(self.first + self.oper + self.second))
+        
+        self.first = ''
+        self.second = ''
+        self.oper = ''
+
+        self.result.setText(str(self.resultLabel))
 
 def operator(self, a):
-    if not self.first:
+    if not self.oper:
         self.first = self.result.text()
         self.resultLabel = '0'
         self.result.setText(self.resultLabel)
