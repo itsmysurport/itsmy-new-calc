@@ -100,7 +100,7 @@ class Ui_New_calc(object):
         self.resultButton.setText(_translate("New_calc", "="))
         self.buttonPlus.setText(_translate("New_calc", "+"))
         self.buttonMinus.setText(_translate("New_calc", "-"))
-        self.buttonMulti.setText(_translate("New_calc", "-"))
+        self.buttonMulti.setText(_translate("New_calc", "*"))
         self.buttonDivide.setText(_translate("New_calc", "/"))
 
 
@@ -112,3 +112,4 @@ if __name__ == "__main__":
     ui.setupUi(New_calc)
     New_calc.show()
     sys.exit(app.exec_())
+
