@@ -78,6 +78,9 @@ class Ui_New_calc(object):
         self.buttonDivide = QtWidgets.QPushButton(self.centralwidget)
         self.buttonDivide.setGeometry(QtCore.QRect(390, 320, 89, 25))
         self.buttonDivide.setObjectName("buttonDivide")
+        self.buttonClear = QtWidgets.QPushButton(self.centralwidget)
+        self.buttonClear.setGeometry(QtCore.QRect(60, 320, 89, 25))
+        self.buttonClear.setObjectName("buttonClear")
         New_calc.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(New_calc)
@@ -102,6 +105,7 @@ class Ui_New_calc(object):
         self.buttonMinus.setText(_translate("New_calc", "-"))
         self.buttonMulti.setText(_translate("New_calc", "*"))
         self.buttonDivide.setText(_translate("New_calc", "/"))
+        self.buttonClear.setText(_translate("New_calc", "C"))
 
 
 if __name__ == "__main__":
