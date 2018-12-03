@@ -16,6 +16,15 @@ def numberEvent(self):      # Event가 발생하면 실행되는 함수들
     self.buttonMulti.clicked.connect(lambda x : self.operator('*'))
     self.buttonDivide.clicked.connect(lambda x : self.operator('/'))
     self.resultButton.clicked.connect(self.resultFunc)
+    self.buttonClear.clicked.connect(self.clearFunc)
+
+def clearFunc(self):
+    self.afterExpression = ''
+    self.expression = ''
+    self.seenLabel = ''
+    self.inOper = False
+    self.result.setText('')
+    print("Cleared Expression.")
 
 def resultFunc(self):   # = 을 눌렀을 때
     if len(self.expression) == 0:
@@ -30,9 +39,7 @@ def resultFunc(self):   # = 을 눌렀을 때
     print('RESULT : ', self.expression)
     self.result.setText(self.expression)
 
-    print('A ', self.afterExpression)
     self.afterExpression = self.result.text()
-    print('A ', self.afterExpression)
     self.expression = ''
     self.seenLabel = ''
     self.inOper = False
@@ -98,6 +105,7 @@ Ui_New_calc.numberEvent = numberEvent
 Ui_New_calc.addNumber = addNumber
 Ui_New_calc.operator = operator
 Ui_New_calc.resultFunc = resultFunc
+Ui_New_calc.clearFunc = clearFunc
 
 Ui_New_calc.afterExpression = ''
 Ui_New_calc.expression = ''
